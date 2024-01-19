@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Main = ({obj, setObj}) => {
 
     const amountUp = () => {
@@ -6,6 +8,7 @@ const Main = ({obj, setObj}) => {
         console.log(typeof Number(obj.total), obj.total);
         if (typeof Number(obj.total) === "number") {
             setObj({ ...obj, credit: obj.credit + Math.round(Number(obj.total) * 100) / 100})
+            document.querySelector('#geldbetrag').value = ''
         } 
     }
 
@@ -15,6 +18,7 @@ const Main = ({obj, setObj}) => {
         console.log(typeof Number(obj.total), obj.total);
         if (typeof Number(obj.total) === "number") {
             setObj({ ...obj, credit: obj.credit - Math.round(Number(obj.total) * 100) / 100})
+        document.querySelector('#geldbetrag').value = ''
         }  
     }
 
@@ -28,7 +32,7 @@ const Main = ({obj, setObj}) => {
                 id="geldbetrag"
                 className="geldbetrag" 
                 placeholder="Betrag in €"
-                value={obj.title}
+                // value={obj.total}
                 />
                 <div>
                     <button
